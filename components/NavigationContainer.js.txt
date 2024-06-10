@@ -1,0 +1,17 @@
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import App from './App';
+import recuperarSenha from '../src/recuperarSenha';
+
+const AppContainer = () => {
+  return (
+    <NavigationContainer>
+    <Stack.Navigator>
+      <Stack.Screen name="recuperarSenha" component={recuperarSenha} />
+    </Stack.Navigator>
+  </NavigationContainer>
+);
+  
+};
+
+export default AppContainer;
