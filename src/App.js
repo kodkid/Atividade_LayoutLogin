@@ -1,81 +1,28 @@
 import * as React from "react";
-import {
-  SafeAreaView,
-  StyleSheet,
-  TextInput,
-  View,
-  Text,
-  Button,
-  Alert,
-  TouchableOpacity,
-} from "react-native";
+import { SafeAreaView, StyleSheet } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { NavigationContainer } from "@react-navigation/native";
-import recuperarSenha from "./Screams/recuperarSenha";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Login from "./Screams/Login";
+import Cadastro from "./Screams/Cadastro";
 
 const Stack = createNativeStackNavigator();
 
-const MyStack = () => {
+const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
-          name="Home"
-          component={HomeScreen}
-          options={{ title: "Welcome" }}
+          name="Login"
+          component={Login}
+          options={{ title: "Tela de Login" }}
         />
-        <Stack.Screen name="Profile" component={ProfileScreen} />
+        <Stack.Screen
+          name="Cadastro"
+          component={Cadastro}
+          options={{ title: "Tela de Cadastro" }}
+        />
       </Stack.Navigator>
-    </NavigationContainer>
-  );
-};
-
-const App = () => {
-  const [text, onChangeText] = React.useState("");
-  const [number, onChangeNumber] = React.useState("");
-  // const navigation = useNavigation();
-
-  const RecuperarSenha = () => {
-    Alert.alert("Vc solicitou para mudar a senha");
-  };
-
-  return (
-    <NavigationContainer>
-      <View style={styles.container}>
-        <SafeAreaView>
-          <Text style={styles.titulo}> Realize o seu login</Text>
-
-          <TextInput
-            style={styles.input}
-            onChangeText={onChangeText}
-            value={text}
-            placeholder="Digite o seu Nome/Email"
-            keyboardType="text"
-          />
-          <TextInput
-            style={styles.input}
-            onChangeText={onChangeNumber}
-            value={number}
-            placeholder="Digite sua senha"
-            keyboardType="numeric"
-          />
-        </SafeAreaView>
-        {/* Final dos inputs */}
-        <View style={styles.botaoEntrar}>
-          <Button
-            title="Entrar"
-            onPress={() => Alert.alert("Você Realizou login")}
-          />
-        </View>
-        {/* Final do botaoEntrar */}
-        <View>
-          <TouchableOpacity onPress={RecuperarSenha}>
-            <Text>Esqueceu a senha?</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
-      /* Final do container */
     </NavigationContainer>
   );
 };
