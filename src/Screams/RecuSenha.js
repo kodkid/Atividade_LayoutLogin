@@ -3,7 +3,7 @@ import { SafeAreaView, StyleSheet, TextInput, View, Text, Button, Alert, Touchab
 
 
 
-const RecuSenha = ({navigation}) => {
+const RecuSenha = ({ navigation }) => {
   const [text, onChangeText] = React.useState('');
 
   return (
@@ -21,19 +21,22 @@ const RecuSenha = ({navigation}) => {
       </SafeAreaView>
       {/* Final dos input */}
       <View style={styles.botaoContainer}>
-        <Button style={styles.botao}
-          title="Enviar"
-          onPress={() => Alert.alert('Enviamos um email para a recuperação de conta')}
+        <Button
+          title="Entrar"
+          onPress={() => {
+            Alert.alert('Enviamos um email para o processo de recuperação da sua conta...');
+            navigation.navigate('Login', { name: 'Cadastro' });
+          }}
         />
-   
+
 
       </View>
       {/* Final do botaoContainer */}
       <TouchableOpacity style={styles.Voltar} onPress={() =>
-          navigation.navigate('Login', { name: 'Login' })
-        }>
-          <Text style={styles.texto}>Voltar a Pagina Inicial</Text>
-        </TouchableOpacity>
+        navigation.navigate('Login', { name: 'Login' })
+      }>
+        <Text style={styles.texto}>Voltar</Text>
+      </TouchableOpacity>
     </View >
     /* Final do container */
   );
@@ -69,15 +72,15 @@ const styles = StyleSheet.create({
   botao: {
     paddingBottom: 4,
     borderRadius: 5,
-   
-  
+
+
   },
   Voltar: {
     flexDirection: 'row',
     justifyContent: 'flex-end',
-    alignItems: 'flex-end', // Alinha os itens à direita do container
+    alignItems: 'flex-end',
     padding: 20,
-}
+  }
 
 });
 

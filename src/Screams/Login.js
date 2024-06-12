@@ -1,5 +1,5 @@
 import * as React from "react";
-import { StyleSheet, View, Text, Button, TextInput, SafeAreaView, TouchableOpacity, Alert } from "react-native";
+import { StyleSheet, View, Text, Button, TextInput, SafeAreaView, TouchableOpacity } from "react-native";
 
 const Login =( {navigation} ) => {
   const [text, onChangeText] = React.useState('');
@@ -21,17 +21,18 @@ const Login =( {navigation} ) => {
           onChangeText={onChangeNumber}
           value={number}
           placeholder="Digite sua senha"
-          keyboardType="numeric"
+          keyboardType="text"
         />
       </SafeAreaView>
       {/* Final dos inputs */}
       <View style={styles.botao}>
         <Button
           title="Entrar"
-          onPress={() =>
-            navigation.navigate('Cadastro', { name: 'Cadastro do contato' })
-          }
+          onPress={() => {
+            navigation.navigate('Home', { name: 'Home' });
+          }}
         />
+        
         
       </View>
       {/* Final do botaoEntrar */}
@@ -41,6 +42,12 @@ const Login =( {navigation} ) => {
           navigation.navigate('RecuSenha', { name: 'Recuperar Senha' })
         }>
           <Text style={styles.texto}>Esqueceu a senha?</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.cadastro} onPress={() =>
+          navigation.navigate('Cadastro', { name: 'Cadastro' })
+        }>
+          <Text style={styles.texto}>Cadastre-se</Text>
         </TouchableOpacity>
 
       </View>
@@ -77,15 +84,22 @@ const styles = StyleSheet.create({
   },
   EsqueceuSenha: {
     flexDirection: 'row',
-    justifyContent: 'flex-end',
-    alignItems: 'flex-end', 
+    justifyContent: 'center',
+    alignItems: 'center', 
     padding: 20,
 
   },
   texto: {
     fontSize: 14,
     color: '#000'
-  }
+  },
+  cadastro: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center', 
+   
+
+  },
 
 });
 

@@ -4,6 +4,7 @@ import { useNavigation } from "@react-navigation/native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Login from "./Screams/Login";
+import Home from "./Screams/Home"
 import Cadastro from "./Screams/Cadastro";
 import RecuSenha from "./Screams/RecuSenha";
 
@@ -19,14 +20,20 @@ const App = () => {
           options={{ title: "Tela de Login" }}
         />
         <Stack.Screen
-          name="Cadastro"
-          component={Cadastro}
-          options={{ title: "Tela de Cadastro" }}
+          name="Home"
+          component={Home}
+          options={{ title: "Minha conta" }}
         />
+
         <Stack.Screen
           name="RecuSenha"
           component={RecuSenha}
           options={{ title: "Tela de Recuperar Senha" }}
+        />
+        <Stack.Screen
+          name="Cadastro"
+          component={Cadastro}
+          options={{ title: "Tela de Cadastro" }}
         />
       </Stack.Navigator>
     </NavigationContainer>
