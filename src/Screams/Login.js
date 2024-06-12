@@ -28,7 +28,9 @@ const Login =( {navigation} ) => {
       <View style={styles.botao}>
         <Button
           title="Entrar"
-          onPress={() => Alert.alert('Você Realizou login')}
+          onPress={() =>
+            navigation.navigate('Cadastro', { name: 'Cadastro do contato' })
+          }
         />
         
       </View>
@@ -36,7 +38,7 @@ const Login =( {navigation} ) => {
       <View>
 
         <TouchableOpacity style={styles.EsqueceuSenha} onPress={() =>
-          navigation.navigate('Cadastro', { name: 'Cadastro' })
+          navigation.navigate('RecuSenha', { name: 'Recuperar Senha' })
         }>
           <Text style={styles.texto}>Esqueceu a senha?</Text>
         </TouchableOpacity>
@@ -76,7 +78,7 @@ const styles = StyleSheet.create({
   EsqueceuSenha: {
     flexDirection: 'row',
     justifyContent: 'flex-end',
-    alignItems: 'flex-end', // Alinha os itens à direita do container
+    alignItems: 'flex-end', 
     padding: 20,
 
   },

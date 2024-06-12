@@ -1,43 +1,60 @@
-import React from 'react';
-import { SafeAreaView, StyleSheet, TextInput, View, Text, Button, Alert, TouchableOpacity } from 'react-native';
+import * as React from "react";
+import { StyleSheet, View, Text, Button, TextInput, SafeAreaView, TouchableOpacity, Alert } from "react-native";
 
-
-
-const Cadastro = ({navigation}) => {
+const Cadastro =( {navigation} ) => {
   const [text, onChangeText] = React.useState('');
-
+  const [number, onChangeNumber] = React.useState('');
   return (
     <View style={styles.container}>
       <SafeAreaView>
-        <Text style={styles.titulo}> Recuperação de conta</Text>
+        <Text style={styles.titulo}> Realize o seu Cadastro</Text>
 
         <TextInput
           style={styles.input}
           onChangeText={onChangeText}
           value={text}
-          placeholder="Digite o email que vc usa na sua conta"
+          placeholder="Digite o email que vc deseja cadastrar"
+          keyboardType="text"
+        />
+        <TextInput
+          style={styles.input}
+          onChangeText={onChangeText}
+          value={text}
+          placeholder="Digite sua senha"
+          keyboardType="text"
+        />
+          <TextInput
+          style={styles.input}
+          onChangeText={onChangeText}
+          value={text}
+          placeholder="Confirme sua senha"
           keyboardType="text"
         />
       </SafeAreaView>
-      {/* Final dos input */}
-      <View style={styles.botaoContainer}>
-        <Button style={styles.botao}
-          title="Enviar"
-          onPress={() => Alert.alert('Enviamos um email para a recuperação de conta')}
+      {/* Final dos inputs */}
+      <View style={styles.botao}>
+        <Button
+          title="Entrar"
+          onPress={() => Alert.alert('Você Realizou login')}
         />
-   
+        
+      </View>
+      {/* Final do botaoEntrar */}
+      <View>
+
+        <TouchableOpacity style={styles.EsqueceuSenha} onPress={() =>
+          navigation.navigate('RecuSenha', { name: 'Recuperar Senha' })
+        }>
+          <Text style={styles.texto}>Esqueceu a senha?</Text>
+        </TouchableOpacity>
 
       </View>
-      {/* Final do botaoContainer */}
-      <TouchableOpacity style={styles.Voltar} onPress={() =>
-          navigation.navigate('Login', { name: 'Login' })
-        }>
-          <Text style={styles.texto}>Voltar a Pagina Inicial</Text>
-        </TouchableOpacity>
-    </View >
+
+    </View>
+
     /* Final do container */
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -58,27 +75,26 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     padding: 10,
   },
-  botaoContainer: {
-    flexDirection: "row",
-    justifyContent: "center",
-    padding: 10,
-    marginHorizontal: 10,
-
-
-  },
   botao: {
+    flexDirection: 'row',
+    justifyContent: 'center',
     paddingBottom: 4,
-    borderRadius: 5,
-   
-  
   },
-  Voltar: {
+  EsqueceuSenha: {
     flexDirection: 'row',
     justifyContent: 'flex-end',
-    alignItems: 'flex-end', // Alinha os itens à direita do container
+    alignItems: 'flex-end', 
     padding: 20,
-}
+
+  },
+  texto: {
+    fontSize: 14,
+    color: '#000'
+  }
 
 });
 
 export default Cadastro;
+
+
+

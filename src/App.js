@@ -5,10 +5,11 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Login from "./Screams/Login";
 import Cadastro from "./Screams/Cadastro";
+import RecuSenha from "./Screams/RecuSenha";
 
 const Stack = createNativeStackNavigator();
 
-const App = (navigation) => {
+const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
@@ -21,6 +22,11 @@ const App = (navigation) => {
           name="Cadastro"
           component={Cadastro}
           options={{ title: "Tela de Cadastro" }}
+        />
+        <Stack.Screen
+          name="RecuSenha"
+          component={RecuSenha}
+          options={{ title: "Tela de Recuperar Senha" }}
         />
       </Stack.Navigator>
     </NavigationContainer>
