@@ -1,12 +1,43 @@
-import { StyleSheet, View, Text  } from "react-native";
+import React from 'react';
+import { SafeAreaView, StyleSheet, TextInput, View, Text, Button, Alert, TouchableOpacity } from 'react-native';
 
-export default function Cadastro({ navigation }) {
+
+
+const Cadastro = ({navigation}) => {
+  const [text, onChangeText] = React.useState('');
+
   return (
     <View style={styles.container}>
-      <Text style={styles.texto}>Tela de Cadastro</Text>
-    </View>
+      <SafeAreaView>
+        <Text style={styles.titulo}> Recuperação de conta</Text>
+
+        <TextInput
+          style={styles.input}
+          onChangeText={onChangeText}
+          value={text}
+          placeholder="Digite o email que vc usa na sua conta"
+          keyboardType="text"
+        />
+      </SafeAreaView>
+      {/* Final dos input */}
+      <View style={styles.botaoContainer}>
+        <Button style={styles.botao}
+          title="Enviar"
+          onPress={() => Alert.alert('Enviamos um email para a recuperação de conta')}
+        />
+   
+
+      </View>
+      {/* Final do botaoContainer */}
+      <TouchableOpacity style={styles.Voltar} onPress={() =>
+          navigation.navigate('Login', { name: 'Login' })
+        }>
+          <Text style={styles.texto}>Voltar a Pagina Inicial</Text>
+        </TouchableOpacity>
+    </View >
+    /* Final do container */
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -14,9 +45,40 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignContent: "center",
     backgroundColor: "#fff",
+
   },
-  texto: {
-    fontSize: 18,
-    fontWeight: "700",
+  titulo: {
+    fontSize: 24,
+    color: "#000",
+
   },
+  input: {
+    height: 40,
+    margin: 12,
+    borderWidth: 1,
+    padding: 10,
+  },
+  botaoContainer: {
+    flexDirection: "row",
+    justifyContent: "center",
+    padding: 10,
+    marginHorizontal: 10,
+
+
+  },
+  botao: {
+    paddingBottom: 4,
+    borderRadius: 5,
+   
+  
+  },
+  Voltar: {
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    alignItems: 'flex-end', // Alinha os itens à direita do container
+    padding: 20,
+}
+
 });
+
+export default Cadastro;

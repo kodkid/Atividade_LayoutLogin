@@ -1,7 +1,7 @@
 import * as React from "react";
-import { StyleSheet, View, Text, Button, TextInput,SafeAreaView, TouchableOpacity } from "react-native";
+import { StyleSheet, View, Text, Button, TextInput, SafeAreaView, TouchableOpacity, Alert } from "react-native";
 
-export default function Login({ navigation }) {
+const Login =( {navigation} ) => {
   const [text, onChangeText] = React.useState('');
   const [number, onChangeNumber] = React.useState('');
   return (
@@ -25,19 +25,20 @@ export default function Login({ navigation }) {
         />
       </SafeAreaView>
       {/* Final dos inputs */}
-      <View style={styles.botaoEntrar}>
+      <View style={styles.botao}>
         <Button
           title="Entrar"
           onPress={() => Alert.alert('Você Realizou login')}
         />
+        
       </View>
       {/* Final do botaoEntrar */}
       <View>
 
-        <TouchableOpacity onPress={() =>
-          navigation.navigate('Cadastro', { name: 'Jane' })
+        <TouchableOpacity style={styles.EsqueceuSenha} onPress={() =>
+          navigation.navigate('Cadastro', { name: 'Cadastro' })
         }>
-          <Text>Esqueceu a senha?</Text>
+          <Text style={styles.texto}>Esqueceu a senha?</Text>
         </TouchableOpacity>
 
       </View>
@@ -67,9 +68,26 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     padding: 10,
   },
-  botaoEntrar: {
+  botao: {
     flexDirection: 'row',
     justifyContent: 'center',
     paddingBottom: 4,
   },
+  EsqueceuSenha: {
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    alignItems: 'flex-end', // Alinha os itens à direita do container
+    padding: 20,
+
+  },
+  texto: {
+    fontSize: 14,
+    color: '#000'
+  }
+
 });
+
+export default Login;
+
+
+
