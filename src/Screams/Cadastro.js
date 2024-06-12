@@ -1,6 +1,6 @@
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View, Text  } from "react-native";
 
-export default function Cadastro({ navigator }) {
+export default function Cadastro({ navigation }) {
   return (
     <View style={styles.container}>
       <Text style={styles.texto}>Tela de Cadastro</Text>

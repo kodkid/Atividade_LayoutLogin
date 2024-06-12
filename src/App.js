@@ -8,7 +8,7 @@ import Cadastro from "./Screams/Cadastro";
 
 const Stack = createNativeStackNavigator();
 
-const App = () => {
+const App = (navigation) => {
   return (
     <NavigationContainer>
       <Stack.Navigator>

@@ -1,0 +1,16 @@
+Nota:
+# Atividade realizada realizada em Senac Centro de informatica Chapada 
+# Aula Administrada pelo professor Achnatom
+Comandos Uteis:
+npx create-expo-app # criar projeto
+npx expo start # Iniciar projeto
+nvm list  # Lista de ambientes instalados do node
+nvm list available  # Lista de ambientes disponiveis para download
+nvm use <version> # Usar versões instaladas
+npx create-expo-app NomeDoMeuAplicativo --template blank # Baixa apenas os requisitos minimos pro projeto
+# Comandos para baixar pacotes e extensões
+npm install @expo/vector-icons
+npx expo install expo-image-picker
+npm install @react-navigation/native
+npm install @react-navigation/stack
+npx expo install react-native-screens react-native-safe-area-context
